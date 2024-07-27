@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <script src="bootstrap.bundle.min.js"></script>
+        <link rel="stylesheet" href="/bootstrap.css">
+</head>
+<body>
+  
+    <div class="container form-group form-floating">
+        <label for="animalFilter">Catégories des animaux :</label><br>
+        <select class="form-select" id="animalFilter" name="animalFilter" required
+          aria-label="Floating label select example">
+          <option class="text-center" value="all">Toutes</option>
+          <option class="text-center" value="1">Terrestre</option>
+          <option class="text-center" value="2">Volatile</option>
+          <option class="text-center" value="3">Aquatique</option>
+        </select>
+    </div>
+    <div id="animal">
+  
+    </div>
+    
+    <div class="container">
+      <form id="addAnimalForm">
+        <div class="form-group">
+          <label for="animalName">Name : </label>
+          <input type="text" class="form-control" id="animalName" name="animalName" required
+            placeholder="Enter animal name">
+            <span id="nameError" class="text-danger"></span>
+        </div>
+  
+        <div class="form-group">
+          <label for="animalDescription">Description : </label>
+          <input type="text" class="form-control" id="animalDescription" name="animalDescription" required
+            placeholder="Enter animal description">
+            <span id="descriptionError" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+          <label for="animalCategories">Catégories : </label>
+          <input type="text" class="animalCategories" id="animalCategories" name="animalCategories"
+            placeholder="Enter animal categories">
+            <span id="categoriesError" class="text-danger"></span>
+        </div>
+        <!-- <div class=" form-group form-floating">
+            <label for="animalCategories">Liste des catégories :</label><br>
+            <select class="animalCategories" id="animalCategories" name="animalCategories" required
+              aria-label="Floating label select example">
+              <option selected class="text-center" value="select">Select catégories...</option>
+               <option class="text-center" value="all">Toutes</option>
+              <option class="text-center" value="1">Terrestre</option>
+              <option class="text-center" value="2">Volatile</option>
+              <option class="text-center" value="3">Aquatique</option>
+              <option class="text-center" value="">Firmino</option>
+            </select>
+        </div> -->
+        <div class="form-group">
+          <label for="animalImage">Lien image : </label>
+          <input type="text" class="form-control" id="animalImage" name="animalImage" required
+            placeholder="Enter link animal image">
+            <span id="imageError" class="text-danger"></span>
+        </div>
+        <button type="submit" class="btn btn-primary" id="submit"> Ajouter l'animal</button>
+      </form>
+    </div>
+    <script src="/script.js"></script>
+</body>
+</html>
