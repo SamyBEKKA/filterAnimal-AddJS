@@ -7,61 +7,65 @@ class Animal {
       this.image = image;
     }
 }
-// ["lion", "Aigle", "Poisson-clown"];
-// ["Terrestre", "Aquatique", "Volatile"];
 let animals = [
-  new Animal ("Lion", "Le roi de la savanne, voir même des animaux.", "1", "https://proxymedia.woopic.com/api/v1/images/331%2Fle-roi-lion%7CLEROILIONXXW0089180_BAN1_2424_NEWTV_HD.jpg?format=512x&saveas=webp&saveasquality=70"),
-  new Animal ("Aigle", "Notre grand et beau aigle yoral, concurrent direct du roi Lyon et ennemi de stuart little.", "2", "https://www.monde-animal.fr/wp-content/uploads/2020/04/fiche-animale-monde-animal-aigle-royal-1.jpg"),
-  new Animal ("Poisson-Clown", "Némo le Poisson-clown de Pixar.", "3", "https://upload.wikimedia.org/wikipedia/commons/3/36/NemoAdvertisingIdahoAquarium.JPG")
+  new Animal ("Lion", "Le roi de la savanne, voir même des animaux.", "1", 
+    "https://proxymedia.woopic.com/api/v1/images/331%2Fle-roi-lion%7CLEROILIONXXW0089180_BAN1_2424_NEWTV_HD.jpg?format=512x&saveas=webp&saveasquality=70"),
+  new Animal ("Aigle", "Notre grand et beau aigle yoral, concurrent direct du roi Lyon et ennemi de stuart little.", "2", 
+    "https://www.monde-animal.fr/wp-content/uploads/2020/04/fiche-animale-monde-animal-aigle-royal-1.jpg"),
+  new Animal ("Poisson-Clown", "Némo le Poisson-clown de Pixar.", "3", 
+    "https://upload.wikimedia.org/wikipedia/commons/3/36/NemoAdvertisingIdahoAquarium.JPG")
   ] 
 // console.log(animals);
- displayAnimals(animals);
 
-  function displayAnimals(animals) {
-    for (let animal of animals) {
-      let animalDiv = document.getElementById("animal");
-      animalDiv.classList.add("container", "col-3", "img-fluid", "img-thumbnail")      
-      // animalDiv.setAttribute("container", "col-3", "img-fluid", "img-thumbnail");
-      let textDiv= document.createElement("div");
-      textDiv.classList.add("d-flex", "row")
-
-      let animalImage = document.createElement("img");
-      animalImage.setAttribute("src", animal.image);
-      animalImage.setAttribute("alt", animal.name);
-      animalImage.className = "img-fluid";
-      animalImage.setAttribute("height", "300px");
-      animalImage.setAttribute("width", "400px");
-
-      let animalName = document.createElement("h3");
-      animalName.textContent = animal.name;
-
-      let animalDescription = document.createElement("h4");
-      animalDescription.textContent = animal.description;
-
-      let animalCategories = document.createElement("h5");
-      //animalCategories.textContent = animal.categories;
-      // les if
-      if (animal.categories === "1") {
-        animalCategories.innerText = "Type : Terrestre"
-      } else if (animal.categories === "2"){
-        animalCategories.innerText = "Type : Volatile"
-      } else if(animal.categories === "3") {
-        animalCategories.innerText = "Type : Aquatique"
-      } else {
-        animalCategories.innerText = "Catégorie inconnue."; 
-        // Valeur par défaut si aucune catégorie ne correspond
-      }
-
-      animalDiv.appendChild(animalImage);
-      animalDiv.appendChild(textDiv); 
-      textDiv.appendChild(animalName);
-      textDiv.appendChild(animalDescription);
-      textDiv.appendChild(animalCategories);
+displayAnimals(animals);
+// Fonction pour afficher la liste des animaux
+function displayAnimals(animals) {
+  // Itération sur chaque animal dans le tableau
+  for (let animal of animals) {
+    // Récupération de l'élément HTML avec l'id "animal"
+    let animalDiv = document.getElementById("animal");
+    // Ajout de classes CSS pour le style de l'élément
+    animalDiv.classList.add("container", "col-3", "img-fluid", "img-thumbnail");
+    // Création d'une nouvelle div pour contenir les informations textuelles de l'animal
+    let textDiv = document.createElement("div");
+    textDiv.classList.add("d-flex", "row");
+    // Création d'un élément image pour afficher la photo de l'animal
+    let animalImage = document.createElement("img");
+    animalImage.setAttribute("src", animal.image); // Définition de la source de l'image
+    animalImage.setAttribute("alt", animal.name); // Définition du texte alternatif de l'image
+    animalImage.className = "img-fluid"; // Ajout de la classe CSS pour rendre l'image réactive
+    animalImage.setAttribute("height", "300px"); // Définition de la hauteur de l'image
+    animalImage.setAttribute("width", "400px"); // Définition de la largeur de l'image
+    // Création d'un élément h3 pour afficher le nom de l'animal
+    let animalName = document.createElement("h3");
+    animalName.textContent = animal.name; // Définition du texte du nom de l'animal
+    // Création d'un élément h4 pour afficher la description de l'animal
+    let animalDescription = document.createElement("h4");
+    animalDescription.textContent = animal.description; // Définition du texte de la description de l'animal
+    // Création d'un élément h5 pour afficher la catégorie de l'animal
+    let animalCategories = document.createElement("h5");
+    // Vérification de la catégorie de l'animal et affichage du type correspondant
+    if (animal.categories === "1") {
+      animalCategories.innerText = "Type : Terrestre";
+    } else if (animal.categories === "2") {
+      animalCategories.innerText = "Type : Volatile";
+    } else if (animal.categories === "3") {
+      animalCategories.innerText = "Type : Aquatique";
+    } else {
+      animalCategories.innerText = "Catégorie inconnue."; // Valeur par défaut si aucune catégorie ne correspond
     }
+    // Ajout de l'image de l'animal à l'élément principal
+    animalDiv.appendChild(animalImage);
+    // Ajout de la div contenant les informations textuelles à l'élément principal
+    animalDiv.appendChild(textDiv); 
+    // Ajout des informations textuelles à la div dédiée
+    textDiv.appendChild(animalName);
+    textDiv.appendChild(animalDescription);
+    textDiv.appendChild(animalCategories);
   }
+}
 
   function filterAnimal() {
-     //const valueAnimal = animalFilter.value
      let animalDiv = document.getElementById("animal");
       animalDiv.classList.add("container", "col-3", "img-fluid", "img-thumbnail")      
     animalDiv.innerHTML = "";
@@ -76,7 +80,6 @@ let animals = [
           const filterAnimal = animals.filter((terreste) => {
             return terreste.categories === "1";
           });
-          //console.log(filterAnimal)
           displayAnimals(filterAnimal)
         } else {
           if (valueAnimal.value === "2" || valueAnimal.value === "volatile") {
